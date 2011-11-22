@@ -13,20 +13,17 @@ public class JsonConverterTest {
 
 	@Test
 	public void testJsonToJava() {
-		
-		
 		try {
-	        Person person = new JsonConverter<Person>().jsonToJava(getJson(), Person.class);
-	        System.out.println(person.toString());
+			Person person = new JsonConverter<Person>().jsonToJava(getJson(), Person.class);
+			System.out.println(person.toString());
 		} catch (JsonParseException e) {
-	        e.printStackTrace();
-        } catch (JsonMappingException e) {
-	        e.printStackTrace();
-        } catch (IOException e) {
-	        e.printStackTrace();
-        }
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-
 
 	@Test
 	public void testJavaToJson() {
