@@ -1,4 +1,4 @@
-package com.abg.v8api.web;
+package org.abg.v8api.web;
 
 import java.net.HttpURLConnection;
 
@@ -14,13 +14,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 
+import org.abg.v8api.domain.User;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
+import org.abg.v8api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abg.v8api.domain.User;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
-import com.abg.v8api.service.UserService;
 import com.sun.jersey.api.core.HttpContext;
 
 @Service

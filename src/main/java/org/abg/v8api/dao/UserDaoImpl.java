@@ -1,4 +1,4 @@
-package com.abg.v8api.dao;
+package org.abg.v8api.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.abg.v8api.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.abg.v8api.domain.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {

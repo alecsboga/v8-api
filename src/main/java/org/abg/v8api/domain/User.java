@@ -1,4 +1,4 @@
-package com.abg.v8api.domain;
+package org.abg.v8api.domain;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 

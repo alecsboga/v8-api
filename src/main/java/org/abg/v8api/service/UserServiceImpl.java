@@ -1,16 +1,16 @@
-package com.abg.v8api.service;
+package org.abg.v8api.service;
 
 import java.util.List;
 
+import org.abg.v8api.dao.UserDao;
+import org.abg.v8api.domain.User;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
+import org.abg.v8api.jms.MessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.abg.v8api.dao.UserDao;
-import com.abg.v8api.domain.User;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
-import com.abg.v8api.jms.MessagePublisher;
 
 
 @Service

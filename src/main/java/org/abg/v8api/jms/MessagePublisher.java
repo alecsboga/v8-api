@@ -1,5 +1,10 @@
-package com.abg.v8api.jms;
+package org.abg.v8api.jms;
 
+import org.abg.v8api.domain.AbstractEntity;
+import org.abg.v8api.domain.User;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
+import org.abg.v8api.json.JsonConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +12,6 @@ import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
-import com.abg.v8api.domain.AbstractEntity;
-import com.abg.v8api.domain.User;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
-import com.abg.v8api.json.JsonConverter;
 
 @Service
 public class MessagePublisher {

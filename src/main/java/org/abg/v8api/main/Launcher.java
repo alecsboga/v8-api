@@ -1,16 +1,16 @@
-package com.abg.v8api.main;
+package org.abg.v8api.main;
 
 import java.util.List;
 
+import org.abg.v8api.domain.User;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
+import org.abg.v8api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.abg.v8api.domain.User;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
-import com.abg.v8api.service.UserService;
 
 @Component("launcher")
 public class Launcher {

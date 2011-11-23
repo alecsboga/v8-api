@@ -21,7 +21,7 @@
     <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate" p:connectionFactory-ref="connectionFactory"
         p:defaultDestination-ref="messageQueue" />
 
-    <bean id="messageConsumer" class="com.abg.v8api.jms.MessageConsumer" />
+    <bean id="messageConsumer" class="org.abg.v8api.jms.MessageConsumer" />
 
     <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" p:brokerURL="${broker.url}" />
 

@@ -1,8 +1,9 @@
-package com.abg.v8api.dao;
+package org.abg.v8api.dao;
 
 import java.util.List;
 
-import com.abg.v8api.domain.User;
+import org.abg.v8api.domain.User;
+
 
 
 public interface UserDao {

@@ -1,7 +1,10 @@
-package com.abg.v8api.json;
+package org.abg.v8api.json;
 
 import java.io.IOException;
 
+import org.abg.v8api.domain.AbstractEntity;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -10,9 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.abg.v8api.domain.AbstractEntity;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
 
 @Service
 public class JsonConverter<T extends AbstractEntity> {

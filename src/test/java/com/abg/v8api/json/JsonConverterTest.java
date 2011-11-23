@@ -3,11 +3,12 @@ package com.abg.v8api.json;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import org.abg.v8api.domain.User;
+import org.abg.v8api.exception.ApplicationException;
+import org.abg.v8api.exception.SystemException;
+import org.abg.v8api.json.JsonConverter;
 import org.junit.Test;
 
-import com.abg.v8api.domain.User;
-import com.abg.v8api.exception.ApplicationException;
-import com.abg.v8api.exception.SystemException;
 
 public class JsonConverterTest {
 

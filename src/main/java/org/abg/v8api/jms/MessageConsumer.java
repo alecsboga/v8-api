@@ -1,4 +1,4 @@
-package com.abg.v8api.jms;
+package org.abg.v8api.jms;
 
 import javax.jms.JMSException;
 import javax.jms.Session;

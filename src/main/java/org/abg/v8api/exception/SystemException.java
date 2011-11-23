@@ -1,4 +1,4 @@
-package com.abg.v8api.exception;
+package org.abg.v8api.exception;
 
 public class SystemException extends RuntimeException {
 
