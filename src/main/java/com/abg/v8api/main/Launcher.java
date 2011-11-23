@@ -7,14 +7,16 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.abg.v8api.domain.Person;
-import com.abg.v8api.service.PersonService;
+import com.abg.v8api.domain.User;
+import com.abg.v8api.exception.ApplicationException;
+import com.abg.v8api.exception.SystemException;
+import com.abg.v8api.service.UserService;
 
 @Component("launcher")
 public class Launcher {
 
 	@Autowired
-	private PersonService customerService;
+	private UserService userService;
 
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
@@ -22,53 +24,49 @@ public class Launcher {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("application-context.xml");
 		Launcher launcher = (Launcher) ctx.getBean("launcher");
 
-		// launcher.getAllPersons();
-		// launcher.addPersonSerial(1000);
+		// launcher.getAllUsers();
+		// launcher.addInSerial(1000);
 		int threads = 50;
-		int personsPerThread = 10;
-		launcher.addPersonParallel(threads, personsPerThread);
+		int usersPerThread = 10;
+		launcher.addInParallel(threads, usersPerThread);
 	}
 
-	private void getAllPersons() {
-		List<Person> personList = customerService.getAll();
+	protected void getAllUsers() {
+		List<User> userList = userService.getAll();
 	}
 
-	private void addPersonSerial(int persons) {
+	protected void addInSerial(int users) throws SystemException, ApplicationException {
 		long start = System.currentTimeMillis();
-		for (int i = 0; i < persons; i++) {
-			customerService.add(build("gigi duru", "gigi.duru@gmail.com", 1L));
+		for (int i = 0; i < users; i++) {
+			userService.add(new User("gigi duru", "gigi.duru@gmail.com"));
 		}
-		System.out.println("add " + persons + " in: " + (System.currentTimeMillis() - start));
+		System.out.println("add " + users + " in: " + (System.currentTimeMillis() - start));
 	}
 
-	private void addPersonParallel(int no, int persons) {
+	private void addInParallel(int no, int persons) {
 		for (int i = 0; i < no; i++) {
-			Thread t = new Thread(new PersonCreator(persons));
+			Thread t = new Thread(new UserCreator(persons));
 			t.start();
 		}
 	}
 
-	private Person build(String name, String email, long languageId) {
-		Person person = new Person();
-		person.setName(name);
-		person.setEmail(email);
-		person.setLanguageId(languageId);
+	private class UserCreator implements Runnable {
+		private int users;
 
-		return person;
-
-	}
-
-	private class PersonCreator implements Runnable {
-		private int persons;
-
-		public PersonCreator(int persons) {
-			this.persons = persons;
+		public UserCreator(int users) {
+			this.users = users;
 		}
 
 		public void run() {
 			int i = 0;
-			while (i++ < persons) {
-				customerService.add(build("gigi duru", "gigi.duru@gmail.com", 1L));
+			while (i++ < users) {
+				try {
+					userService.add(new User("gigi duru", "gigi.duru@gmail.com"));
+				} catch (SystemException e) {
+					e.printStackTrace();
+				} catch (ApplicationException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

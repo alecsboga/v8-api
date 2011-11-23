@@ -15,7 +15,7 @@
     
     <context:property-placeholder  location="classpath:jms.properties, classpath:jdbc.properties"/>
 
-    <import resource="classpath:data-access-config.xml"/>
-    <import resource="classpath:jms-config.xml"/>
+    <import resource="classpath:jdbc-context.xml"/>
+    <import resource="classpath:jms-context.xml"/>
 
 </beans>
